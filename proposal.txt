@@ -1,0 +1,72 @@
+
+
+Email: elena.v.lopatina@gmail.com
+
+Short description: Cytoscape is often used to analyze and visualize tabular formatted experimental data in a network context. Currently user can represent metadata about samples only in ad hoc manner. So goals of this project are to (1) define and implement a systematic mechanism for representing metadata about samples in Cytoscape, (2) build interfaces and workflows for grouping samples manually and by query, comparing results of differential analyses, and (3) persisting sample set definitions across Cytoscape sessions.
+
+Name: Elena Lopatina
+
+Email: elena.v.lopatina@gmail.com
+
+Background: I am a student of the Department of Molecular and Biology Physics in the Moscow Institute of Physics and Technology (State University). Currently I pursue my MSc degree and it will be finished in the June, 2013. I do research in bioinformatics, it's about chromosome rearrangements that occurs during evolution
+history in different bacteria. In my everyday work I develop applications for data processing in Java.
+
+Programming interests and strengths: My favourite programming language is Java. I am familiar with XML,SQL,CSS and other technologies used in software development. Also I know Javascript. I didn't work with metadata a lot and it will be interesting to learn more about metadata this summer.
+
+Interests in biology and bioinformatics: I do research in bioinformatics. Since it is associated with evolutionary genomics and phylogeny often I use phylogenetics software. I would like to improve my knowledge in other areas of bioinformatics.
+
+Idea for a project and project plan:
+
+Cytoscape is frequently used for the analysis and visualization of tabular formatted experimental data. And often we want to compare different subsets of samples. Now we can represent metadata about samples only in ad hoc manner. So idea of project is to make a general metadata representation and User Interface to it.
+
+Imaging that we have data from DNA microarray experiment from a cancer dataset. These data contains ID for genes and their microarray data values. One column represents data for one sample. We can load this data to Cytoscape and use them to build graph. If we provide information about metadata e.g. type of tumor, gender, smoker& non-smoker, we would be able to compare graphs for different subsets of sample. For example, we would be able to compare graphs for samples from smokers with breast cancer and non-smokers with breast cancer.
+ISO-TAB format is one of the metadata format that could help us to provide all information about samples that we need (it could be table containing columns with sample characteristics).  Also ISO-TAB format provides full information about study (study description, study submission date, study release date, study publications, etc.).
+
+I will describe functionality and design.
+
+Functionality:
+1.User should be able to use a tabular formatted data without any metadata information and create it by himself. Also one should be able to use data with metadata information and be able to read it and change.
+
+Here we should decide what formats of metadata to use and provide readers and writers. One possible format is ISO-TAB.
+
+2.Once User read metadata file he should be able to change it.
+There would be two types of entities:Sample and Group. Sample is one column. Group could be created out of samples and out of groups. User should be able to add sample or set of samples, to delete sample or set of samples. Also one should be able to create group out of other groups by using tools intersect,union,difference or to delete group.
+
+Group is the entity that would include set of samples that this group contain, set of group that this group contain, name of group and set of root groups, if this group belong to any other groups.
+
+3.User should be able to make a metadata file from the information of Group.
+
+Design:
+
+On the control panel would be provided buttons "Create Group", "Intersect Groups", "Union Groups", "Difference Groups", "Delete Group", user would be able to select samples and put them in one group clicking the button "Create Group". Except samples on control panel would be displayed groups that user create. Groups would have a tree interface. User would be able to click on group and see groups that this group contain.
+
+Implementation plan:
+
+May,28 - June,16
+1) Get familiar to the existing code.
+2) Get familiar to all standard formats for representing metadata and choose that we would use in Cytoscape. Learn about ISO-TAB format and may be change anything in structure of entity Group to make importing and exporting data easier.
+
+Week 1:Taking into account structure of entity Group and format that we choose write method for importing metadata in Cytoscape.
+
+Week 2:Create an entity Group and Sample. And write methods: Group.addSample(<Sample>); Group.deleteSample(<Sample>); Group.addSamples(Set<Sample>); Group.deleteSamples(Set<Sample>);
+
+Week 3:Write methods for groups: Group.addGroup(<Group>); Group.deleteGroup(<Group>); Group.union(<Group>);
+Group.intersect(<Group>); Group.difference(<Group>);Group.delete(<Group>);
+
+Week 4:Provide methods for Group such as Group.getName(), Group.setName(),Group.getRootGroups(), Group.setRootGroups(), Group.getGroups(); Group.setGroups();
+
+Week 5:Start to work with User Interface. Provide displaying of samples of imported tabular formatted data.
+
+Week 6:Create buttons "Difference Groups", "Delete Group" and make them work. Created groups should be shown in control panel with samples.
+
+Week 7:Create buttons "Create Group", "Intersect Groups", "Union Groups" and make them work. Created groups should be shown in control panel with samples.
+
+Week 8:Provide a Tree Interface for Groups. Clicking on the Group would be displayed all groups that belong to this group.Then you can click on one of that groups and see samples that belong to group.
+
+Week 9:Write method for exporting metadata from Cytoscape.
+
+Week 10:Provide in Menu tool : Import/Export metadata
+
+Week 11,12:Complete benchmark tests;probably create any specific exceptions; document all new code; Submit final evaluations to Google;
+
+I want to contribute to this project and as I don't have any conflicting plans during the coding period I will do all my best.
