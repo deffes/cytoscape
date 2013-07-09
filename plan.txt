@@ -1,0 +1,13 @@
+I suggest that we start with one simple use case and build good user interfaces for the important features.    I have a use case in mind:
+
+       a. I have a data table with rows being genes and columns being patient samples.   I also have analysis tool that takes a tabular data file as input, rows are genes, columns are patient samples.   We can treat that analysis tools as a black box, all we need to do in our app is to create files for it to work with.
+
+        b. I want to be able to produce different sets of files using different subsets of the columns.    Basically, I want to be able to assign 'tags' to samples, e.g. 'diabetic', 'smoker', etc.
+
+         c. I want to be able to construct a new data table from a subset of columns based upon those tags, for example get me all samples that are 'female' and 'smoker'.
+
+          d. I want to be able to write that new 'subset' data table to a tab-delimited file.   This should be straightforward, basically it is writing a CyTable to a file.   
+
+          e. I want to be able to use these 'tags' across Cytoscape sessions and also across different datasets.   For example, if I have gene expression data for a set of samples in one file and miRNA data for the same set of samples in a different file.   So I need a way to save them and read them back in.
+
+           f.   I also need a way to see what tags I have assigned to which samples.
